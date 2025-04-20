@@ -1,0 +1,68 @@
+<!-- index.html or quiz.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MicroLearn Quiz</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      padding: 2rem;
+    }
+    .question {
+      margin-top: 1.5rem;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .option {
+      display: block;
+      margin: 0.25rem 0;
+    }
+    .btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #4338ca;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="question">
+    <h3 id="question-text"></h3>
+
+    <label class="option">
+      <input type="radio" name="q1" value="0" id="option-0" />
+      <span id="option-0-text"></span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q1" value="1" id="option-1" />
+      <span id="option-1-text"></span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q1" value="2" id="option-2" />
+      <span id="option-2-text"></span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q1" value="3" id="option-3" />
+      <span id="option-3-text"></span>
+    </label>
+
+    <button class="btn" onclick="checkAnswer()">Check Answer</button>
+  </div>
+
+  <script src="mockQuizzes.js"></script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | MicroLearn</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="font-sans bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav
+      style="background-color: #293292"
+      class="text-white shadow-md sticky top-0 z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between "
+      >
+        <!-- Left: Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="/public/1.png" alt="Logo" class="w-10 h-10 rounded-full" />
+          <span class="text-2xl font-bold">MicroLearn</span>
+        </a>
+
+        <!-- Center: Nav Links -->
+        <div
+        style="    margin-left: 27%;"
+         class="hidden md:flex items-center space-x-8 mx-auto">
+          <a href="#about" class="hover:text-indigo-200 transition">About</a>
+          <a href="#features" class="hover:text-indigo-200 transition"
+            >Features</a
+          >
+          <a href="#testimonials" class="hover:text-indigo-200 transition"
+            >Testimonials</a
+          >
+        </div>
+
+        <!-- Right: Profile + Start Learning -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+          href="login.html"
+          class="px-4 py-2 border border-white rounded-md hover:bg-white hover:text-indigo-900 transition"
+          >Login</a
+        >
+      </div>
+    </nav>
+
+    <!-- Register Section -->
+    <section class="py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        <div class="max-w-md mx-auto">
+          <div class="bg-white rounded-xl shadow-lg p-8">
+            <div class="text-center mb-8">
+              <h1 class="text-3xl font-bold mb-2">Create Your Account</h1>
+              <p class="text-gray-600">
+                Join MicroLearn and start learning today
+              </p>
+            </div>
+
+            <form id="register-form">
+              <!-- Full Name -->
+              <div class="mb-6">
+                <label for="name" class="block text-gray-700 font-medium mb-2"
+                  >Full Name</label
+                >
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                  >
+                    <i class="fas fa-user text-gray-400"></i>
+                  </div>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    placeholder="your name"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="mb-6">
+                <label for="email" class="block text-gray-700 font-medium mb-2"
+                  >Email Address</label
+                >
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                  >
+                    <i class="fas fa-envelope text-gray-400"></i>
+                  </div>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Password -->
+              <div class="mb-6">
+                <label
+                  for="password"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Password</label
+                >
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                  >
+                    <i class="fas fa-lock text-gray-400"></i>
+                  </div>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    placeholder="••••••••"
+                    required
+                  />
+                  <div
+                    class="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  >
+                    <button
+                      type="button"
+                      id="toggle-password"
+                      class="text-gray-400 focus:outline-none"
+                    >
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">
+                  Password must be at least 8 characters long
+                </p>
+              </div>
+
+              <!-- Confirm Password -->
+              <div class="mb-6">
+                <label
+                  for="confirm-password"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Confirm Password</label
+                >
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                  >
+                    <i class="fas fa-lock text-gray-400"></i>
+                  </div>
+                  <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm-password"
+                    class="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    placeholder="••••••••"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- CAPTCHA Selection -->
+              <div class="mb-6">
+                <label
+                  for="captcha-type"
+                  class="block text-sm font-medium text-gray-700"
+                  >Choose CAPTCHA Type:</label
+                >
+                <select
+                  id="captcha-type"
+                  class="mt-1 block w-full border border-gray-300 rounded-md py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                >
+                  <option value="arithmetic" selected>Arithmetic</option>
+                  <option value="image">Image Selection</option>
+                </select>
+              </div>
+
+              <!-- Arithmetic CAPTCHA -->
+              <div id="arithmetic-captcha-container" class="mb-6">
+                <label
+                  for="arithmetic-answer"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Solve the CAPTCHA:</label
+                >
+                <div class="flex items-center space-x-4 mb-2">
+                  <span
+                    id="arithmetic-challenge"
+                    class="text-lg font-semibold text-gray-800"
+                  ></span>
+                  <button
+                    type="button"
+                    id="refresh-arithmetic-captcha"
+                    class="text-indigo-600 hover:text-indigo-800"
+                  >
+                    🔄
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  id="arithmetic-answer"
+                  name="arithmetic-answer"
+                  class="w-full border border-gray-300 rounded-md py-2 px-3"
+                  placeholder="Enter the answer"
+                />
+                <p
+                  id="arithmetic-error"
+                  class="text-sm text-red-500 mt-1 hidden"
+                >
+                  Incorrect CAPTCHA answer.
+                </p>
+              </div>
+
+              <!-- Image CAPTCHA -->
+              <div id="image-captcha-container" class="mb-6 hidden">
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Select all images containing:
+                  <span id="image-challenge-text" class="font-semibold"></span
+                ></label>
+                <button
+                  type="button"
+                  id="refresh-image-captcha"
+                  class="text-indigo-600 hover:text-indigo-800 mb-2"
+                >
+                  🔄 Refresh
+                </button>
+                <div id="image-options" class="flex flex-wrap gap-2"></div>
+                <p id="image-error" class="text-sm text-red-500 mt-1 hidden">
+                  Please select the correct images.
+                </p>
+              </div>
+
+              <p
+                id="captcha-attempts-error"
+                class="text-sm text-red-600 hidden"
+              >
+                Too many incorrect CAPTCHA attempts. Please try again later.
+              </p>
+
+              <!-- Hidden tracking fields -->
+              <input type="hidden" name="searches" value="0" />
+              <input type="hidden" name="videosWatched" value="0" />
+              <input type="hidden" name="quizzesCompleted" value="0" />
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-md"
+              >
+                Create Account
+              </button>
+
+              <div class="text-center mt-6">
+                <p class="text-gray-600">
+                  Already have an account?
+                  <a
+                    href="login.html"
+                    class="text-indigo-600 font-medium hover:text-indigo-800"
+                    >Sign in</a
+                  >
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <div class="text-center mt-8">
+            <a
+              href="index.html"
+              class="text-indigo-600 hover:text-indigo-800 flex items-center justify-center"
+            >
+              <i class="fas fa-arrow-left mr-2"></i>
+              Back to Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+      <div
+        class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4"
+      >
+        <!-- Left: Logo + Brand Name -->
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="/1.png" alt="Logo" class="w-10 h-10 rounded-full" />
+          <span class="text-xl font-bold">MicroLearn</span>
+        </a>
+
+        <!-- Middle: Social Icons -->
+        <div class="flex space-x-6 text-gray-400">
+          <a href="#" class="hover:text-white"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" class="hover:text-white"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="#" class="hover:text-white"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" class="hover:text-white"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+
+        <!-- Right: Copyright -->
+        <p class="text-sm text-gray-500 text-center md:text-right">
+          &copy; 2025 MicroLearn. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+
+    <script src="auth.js"></script>
+    <script src="captcha.js"></script>
+  </body>
+</html>
