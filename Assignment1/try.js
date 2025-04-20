@@ -166,54 +166,79 @@ function performSearch(searchTerm) {
   }, 1500);
 }
 
-// Open video modal
-function openVideoModal(video) {
-  const videoModal = document.getElementById("video-modal");
-  const videoContainer = document.getElementById("video-container");
-  const modalTitle = document.getElementById("modal-title");
-  const modalDescription = document.getElementById("modal-description");
-  const modalDuration = document.getElementById("modal-duration");
-  const modalViews = document.getElementById("modal-views");
-
+function openVideoModal(videoId) {
+  const videoModal = document.getElementById('video-modal');
+  const videoContainer = document.getElementById('video-container');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDescription = document.getElementById('modal-description');
+  
   if (!videoModal || !videoContainer) return;
+  
+  // Find video data
+  const video = findVideoById(videoId);
+  console.log("Video found:", video);
+  
+  if (!video) {
+      showNotification('Video not found', 'error');
+      return;
+  }
 
   // Update modal content
   modalTitle.textContent = video.title;
   modalDescription.textContent = video.description;
-  modalDuration.textContent = video.duration;
-  modalViews.textContent = video.views + " views";
 
-  // Extract YouTube video ID from thumbnail URL
-  // This is a simplified approach - in a real app, you'd have the actual YouTube ID
-  const videoId = video.id;
-
+  // Set a fixed height via JS (so iframe has height to fill)
+  videoContainer.style.position = 'relative';
+  videoContainer.style.width = '100%';
+  videoContainer.style.height = '400px'; // You can change height if needed
+  console.log(videoId);
   // Create iframe for YouTube video
   videoContainer.innerHTML = `
-        <iframe 
-            src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            class="absolute top-0 left-0 w-full h-full"
-        ></iframe>
-    `;
+      <iframe 
+          src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+          style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      ></iframe>
+  `;
 
   // Show modal
-  videoModal.classList.remove("hidden");
+  videoModal.classList.remove('hidden');
+
+  // Save to history
+  saveVideoToHistory(video);
 }
+
 
 // Close video modal
 function closeVideoModal() {
-  const videoModal = document.getElementById("video-modal");
-  const videoContainer = document.getElementById("video-container");
-
+  const videoModal = document.getElementById('video-modal');
+  const videoContainer = document.getElementById('video-container');
+  
   if (!videoModal || !videoContainer) return;
-
+  
   // Clear video container
-  videoContainer.innerHTML = "";
-
+  videoContainer.innerHTML = '';
+  
   // Hide modal
-  videoModal.classList.add("hidden");
+  videoModal.classList.add('hidden');
+}
+
+// Find video by ID
+function findVideoById(videoId) {
+  // This would normally come from an API
+  // For demo purposes, we'll use our mock video data
+  const allVideos = [];
+  
+  // Add videos for all topics
+  const topics = ['Quantum Physics', 'Machine Learning', 'Data Structures', 'Software Development'];
+  
+  topics.forEach(topic => {
+      allVideos.push(...generateVideoResults(topic));
+  });
+  
+  return allVideos.find(video => video.id === videoId);
 }
 
 // Generate topic summary

@@ -1,15 +1,41 @@
-<!-- index.html or quiz.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>MicroLearn Quiz</title>
+  
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet" />
+  
+  <!-- Custom Styles -->
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
     body {
-      font-family: sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: #f4f4f4;
+      flex: 1;
+    }
+
+    main {
+      flex: 1;
       padding: 2rem;
     }
+
     .question {
       margin-top: 1.5rem;
       background: #fff;
@@ -17,10 +43,12 @@
       border-radius: 8px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
+
     .option {
       display: block;
       margin: 0.25rem 0;
     }
+
     .btn {
       margin-top: 1rem;
       padding: 0.5rem 1rem;
@@ -30,39 +58,89 @@
       border-radius: 6px;
       cursor: pointer;
     }
+
     .btn:hover {
       background: #4338ca;
     }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav style="background-color: #293292" class="text-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="../Assignment1/public/1.png" alt="Logo" class="w-10 h-10 rounded-full" />
+        <span class="text-2xl font-bold">MicroLearn</span>
+      </a>
 
-  <div class="question">
-    <h3 id="question-text"></h3>
+      <div class="hidden md:flex items-center space-x-8 mx-auto">
+        <a href="#about" class="hover:text-indigo-200 transition">About</a>
+        <a href="#features" class="hover:text-indigo-200 transition">Features</a>
+        <a href="#testimonials" class="hover:text-indigo-200 transition">Testimonials</a>
+      </div>
 
-    <label class="option">
-      <input type="radio" name="q1" value="0" id="option-0" />
-      <span id="option-0-text"></span>
-    </label>
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="login.html" class="px-4 py-2 border border-white rounded-md hover:bg-white hover:text-indigo-900 transition">Profile</a>
+        <a href="register.html" class="px-4 py-2 bg-white text-indigo-900 rounded-md font-semibold hover:bg-indigo-100 transition">Start Learning</a>
+      </div>
+    </div>
+  </nav>
 
-    <label class="option">
-      <input type="radio" name="q1" value="1" id="option-1" />
-      <span id="option-1-text"></span>
-    </label>
+  <!-- Main Content -->
+  <main>
+    <!-- Centered Title -->
+    <h1 class="text-4xl font-bold text-center text-indigo-800 mb-6">QUIZZ</h1>
 
-    <label class="option">
-      <input type="radio" name="q1" value="2" id="option-2" />
-      <span id="option-2-text"></span>
-    </label>
+    <!-- Question Box -->
+    <div class="question">
+      <h3 id="question-text"></h3>
 
-    <label class="option">
-      <input type="radio" name="q1" value="3" id="option-3" />
-      <span id="option-3-text"></span>
-    </label>
+      <label class="option">
+        <input type="radio" name="q1" value="0" id="option-0" />
+        <span id="option-0-text"></span>
+      </label>
 
-    <button class="btn" onclick="checkAnswer()">Check Answer</button>
-  </div>
+      <label class="option">
+        <input type="radio" name="q1" value="1" id="option-1" />
+        <span id="option-1-text"></span>
+      </label>
 
+      <label class="option">
+        <input type="radio" name="q1" value="2" id="option-2" />
+        <span id="option-2-text"></span>
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q1" value="3" id="option-3" />
+        <span id="option-3-text"></span>
+      </label>
+
+      <button class="btn" onclick="checkAnswer()">Check Answer</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="../Assignment1/public/1.png" alt="Logo" class="w-10 h-10 rounded-full" />
+        <span class="text-xl font-bold">MicroLearn</span>
+      </a>
+
+      <div class="flex space-x-6 text-gray-400">
+        <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-white"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+
+      <p class="text-sm text-gray-500 text-center md:text-right">
+        &copy; 2025 MicroLearn. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JS File -->
   <script src="mockQuizzes.js"></script>
 </body>
 </html>
