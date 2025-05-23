@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Try MicroLearn | Quick Search</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="font-sans bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav
+      style="background-color: #293292"
+      class="text-white shadow-md sticky top-0 z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <!-- Left: Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="/public/1.png" alt="Logo" class="w-10 h-10 rounded-full" />
+          <span class="text-2xl font-bold">MicroLearn</span>
+        </a>
+
+        <!-- Center: Nav Links -->
+        <div class="hidden md:flex items-center space-x-8 mx-auto">
+          <a href="#about" class="hover:text-indigo-200 transition">About</a>
+          <a href="#features" class="hover:text-indigo-200 transition"
+            >Features</a
+          >
+          <a href="#testimonials" class="hover:text-indigo-200 transition"
+            >Testimonials</a
+          >
+        </div>
+
+        <!-- Right: Profile + Start Learning -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="login.html"
+            class="px-4 py-2 border border-white rounded-md hover:bg-white hover:text-indigo-900 transition"
+            >Profile</a
+          >
+          <a
+            href="register.html"
+            class="px-4 py-2 bg-white text-indigo-900 rounded-md font-semibold hover:bg-indigo-100 transition"
+            >Start Learning</a
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Search Section -->
+    <section
+      class="py-16 md:py-24 bg-gradient-to-r from-orange-500 to-orange-600 text-black"
+    >
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <div class="text-5xl mb-6 TryOur">
+            <i
+              style="font-size: 35px; color: #202774"
+              class="fas fa-search mt-1"
+            ></i>
+
+            <h2 class="text-3xl md:text-4xl font-bold ml-5">
+              Try Our Search Feature Now
+            </h2>
+          </div>
+
+          <p class="text-xl text-orange-100 mb-8">
+            Experience how easy it is to find short, focused video lessons on
+            any topic. No account needed!
+          </p>
+
+          <form id="try-search-form" class="relative">
+            <input
+              type="text"
+              id="search-input"
+              class="w-full py-5 px-6 pr-16 rounded-xl text-gray-800 focus:outline-none focus:ring-4 focus:ring-orange-300 shadow-xl text-lg"
+              placeholder="Try searching for 'Data Structures', 'Quantum Physics'..."
+              autofocus
+            />
+            <button
+              type="submit"
+              style="background-color: #202774"
+              class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white p-3 rounded-lg hover:opacity-90 transition-opacity"
+            >
+              <i class="fas fa-search text-lg"></i>
+            </button>
+          </form>
+
+          <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <button
+              class="search-suggestion px-4 py-2 bg-black bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors"
+            >
+              Data Structures
+            </button>
+            <button
+              class="search-suggestion px-4 py-2 bg-black bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors"
+            >
+              Quantum Physics
+            </button>
+            <button
+              class="search-suggestion px-4 py-2 bg-black bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors"
+            >
+              Machine Learning
+            </button>
+            <button
+              class="search-suggestion px-4 py-2 bg-black bg-opacity-20 rounded-full hover:bg-opacity-30 transition-colors"
+            >
+              World War II
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loading State -->
+    <section class="py-16 hidden" id="loading-section">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto text-center">
+          <div class="loading-spinner mb-6"></div>
+          <h3 class="text-xl font-semibold text-gray-700">
+            Searching for videos...
+          </h3>
+          <p class="text-gray-500">Finding the best short videos for you</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="py-16 hidden" id="results-section">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <!-- Topic Summary -->
+          <div class="bg-white rounded-xl shadow-lg p-8 mb-10">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-2xl md:text-3xl font-bold" id="topic-title">
+                Topic Title
+              </h2>
+              <div class="flex items-center text-orange-500">
+                <i class="fas fa-lightbulb mr-2"></i>
+                <span class="font-medium">Quick Summary</span>
+              </div>
+            </div>
+            <div class="prose max-w-none text-lg" id="topic-summary">
+              <!-- Topic summary will be inserted here by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Video Results -->
+          <h3 class="text-xl md:text-2xl font-bold mb-8 flex items-center">
+            <i class="fas fa-video text-orange-500 mr-3"></i>
+            Short Videos (Under 6 Minutes)
+          </h3>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            id="video-results"
+          >
+            <!-- Video cards will be inserted here by JavaScript -->
+          </div>
+
+          <!-- No Results Message -->
+          <div class="hidden text-center py-16" id="no-results">
+            <div class="text-6xl text-gray-300 mb-6">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-700 mb-3">
+              No videos found
+            </h3>
+            <p class="text-gray-500 mb-8">
+              Try searching for a different topic
+            </p>
+            <button
+              id="try-again-btn"
+              class="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+            >
+              Try Another Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Initial State -->
+    <section class="py-16" id="initial-section">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto text-center">
+          <div class="text-6xl text-orange-200 mb-6">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">
+            Start Learning Something New
+          </h2>
+          <p class="text-lg text-gray-600 mb-8">
+            Enter a topic in the search bar above to discover short, focused
+            video lessons
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div
+              class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow"
+            >
+              <div class="text-3xl text-orange-500 mb-4">
+                <i class="fas fa-search"></i>
+              </div>
+              <h3 class="text-lg font-semibold mb-2">Search</h3>
+              <p class="text-gray-600">
+                Enter any topic you want to learn about
+              </p>
+            </div>
+
+            <div
+              class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow"
+            >
+              <div class="text-3xl text-black mb-4">
+                <i class="fas fa-video"></i>
+              </div>
+              <h3 class="text-lg font-semibold mb-2">Watch</h3>
+              <p class="text-gray-600">
+                View short, focused videos under 6 minutes
+              </p>
+            </div>
+
+            <div
+              class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow"
+            >
+              <div class="text-3xl text-black mb-4">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3 class="text-lg font-semibold mb-2">Learn</h3>
+              <p class="text-gray-600">
+                Gain knowledge quickly and efficiently
+              </p>
+            </div>
+          </div>
+
+          <div
+            id="Track"
+            style="background-color: #202774"
+            class="mt-16 rounded-xl shadow-lg p-8 text-white"
+          >
+            <h3 class="text-2xl font-bold mb-4">
+              Want to Track Your Learning?
+            </h3>
+            <p class="text-lg mb-6">
+              Create a free account to save your search history, track watched
+              videos, and take mini quizzes to test your knowledge.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+            >
+              <a
+                href="register.html"
+                class="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors shadow-md"
+              >
+                Create Free Account
+              </a>
+              <a
+                href="login.html"
+                class="px-6 py-3 border border-white text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
+              >
+                Sign In
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div
+      class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden"
+      id="video-modal"
+    >
+      <div class="bg-white rounded-xl w-full max-w-4xl mx-4">
+        <div
+          class="p-4 border-b border-gray-200 flex justify-between items-center"
+        >
+          <h3 class="text-xl font-bold" id="modal-title">Video Title</h3>
+          <button
+            id="close-modal"
+            class="text-gray-500 hover:text-gray-700 focus:outline-none"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="aspect-w-16 aspect-h-9 bg-black">
+          <div id="video-container" class="w-full h-0 pb-[56.25%] relative">
+            <!-- Video iframe will be inserted here by JavaScript -->
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="text-gray-700 mb-6" id="modal-description">
+            Video description will appear here.
+          </p>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center text-gray-500 text-sm">
+              <i class="fas fa-clock mr-2"></i>
+              <span id="modal-duration">5:42</span>
+              <span class="mx-2">•</span>
+              <i class="fas fa-eye mr-2"></i>
+              <span id="modal-views">1.2M views</span>
+            </div>
+            <a
+              href="register.html"
+              class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors flex items-center"
+            >
+              <i class="fas fa-user-plus mr-2"></i>
+              Sign Up to Save Progress
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+      <div
+        class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4"
+      >
+        <!-- Left: Logo + Brand Name -->
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="/1.png" alt="Logo" class="w-10 h-10 rounded-full" />
+          <span class="text-xl font-bold">MicroLearn</span>
+        </a>
+
+        <!-- Middle: Social Icons -->
+        <div class="flex space-x-6 text-gray-400">
+          <a href="#" class="hover:text-white"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" class="hover:text-white"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="#" class="hover:text-white"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" class="hover:text-white"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+
+        <!-- Right: Copyright -->
+        <p class="text-sm text-gray-500 text-center md:text-right">
+          &copy; 2025 MicroLearn. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="try.js"></script>
+  </body>
+</html>
